@@ -1,0 +1,28 @@
+<?php
+
+  include 'Account.php';
+  include 'AccountStatus.php';
+
+  require_once('../Services/Twilio.php'); // Loads the library
+ 
+  // Your Account Sid and Auth Token from twilio.com/user/account
+
+  $sid = "ACb671440773136ed1c7a05611e00a5ac7"; 
+  $token = "c24f7de5251f8f31a08d52cfddd18851"; 
+
+  $client = new Services_Twilio($sid, $token);
+ 
+  $account = $client->accounts->create(array(
+        "FriendlyName" => "simithn@gmail.com"
+    ));
+  echo $account->sid;
+  
+
+  $acct = new Account();
+  $acct->setData("simith@example.com","tstpass1",AccountStatus::WAITING_ACTIVATION, "2312");
+       
+  // header('Content-type: application/json');
+  // echo json_encode($acct);
+
+?>
+

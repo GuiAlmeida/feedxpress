@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Content upload</title>
+
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							L & D - Learning and Development
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+			
+			</div><!-- /.container -->
+		</div>
+
+		<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+		<div class="main-container-inner">
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+		<div class="main-content">
+	 	 <div class="page-content">
+	 	  <div class="page-header">
+		   <h1> Content Uploader  <small><i class="icon-double-angle-right"></i></small></h1>
+		  </div>
+		  <div class="row">
+		   <div class="col-xs-9">
+		    <div class="container" >
+                    <form class="form-horizontal" role="form" name="content-form" id="content-form" method="POST" action="/learnnow/app/ui/forms/content-upload.php">
+					    <div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="company-country">Content type</label>
+						<div class="col-sm-9">
+							<select name="content-type" id="content-type"> 
+							    <option value="html5" selected="selected">Blog</option> 
+								<option value="blog">HTML5 presentation</option> 
+								<option value="youtube">Youtube</option> 
+							</select>
+						</div>
+						</div>
+						 <div class="form-group">
+							 <label class="col-sm-3 control-label no-padding-right" for="company-url"> URL</label>
+								 <div class="col-sm-9">
+								   <input type="text" id="contentUrl" name="contentUrl" placeholder="Enter blog / Post url" class="col-xs-10 col-sm-5" />
+								</div>
+						</div>
+						 <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="company-name">Title</label>
+                             <div class="col-sm-9">
+                               <input type="text" id="title" name="title" placeholder="Eg: Android Vs iOS" class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+						
+						<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="tags">Tags</label>
+										<div class="col-sm-9">
+											<input type="text" name="tags" class="col-xs-10 col-sm-5" id="tags" value="" placeholder="Add tags here..hit enter" />
+										</div>
+						</div>
+                       
+						
+                      
+						<div class="form-group">
+						  <label class="col-sm-3 control-label no-padding-right" for="company-contact-name">Intro</label>
+							<div class="col-sm-9">
+								 <textarea id="intro" name="intro" class="form-control" rows="5"  placeholder="A quick note describing the content (Optional)"></textarea>
+								
+							 </div>
+						</div>
+						<div class="form-group">
+							  <label class="col-sm-3 control-label no-padding-right" for="contributor">Contributor</label>
+								<div class="col-sm-9">
+									  <input type="text" id="contributor" name="contributor" placeholder="Enter your name" class="col-xs-10 col-sm-5" />
+								 </div>
+						</div>
+					   
+					   <div class="form-group">
+						  <label class="col-sm-3 control-label no-padding-right" for="company-email-repeat-password"></label>
+							<div class="col-sm-9">
+								<button class="btn btn-primary">Submit content</button>
+							 </div>
+					   </div>	
+					    <div class="form-group">
+						  <label class="col-sm-3 control-label no-padding-right" for=""></label>
+							<div class="col-sm-9">
+								<span id="submitResults"></span>
+							 </div>
+					   </div>	
+
+		            </form>
+                    </div>
+		   </div><!-- /.col -->
+		  </div><!-- /.row -->
+		  </div><!-- /.page-content -->
+	         </div><!-- /.main-content -->
+	       	</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="assets/js/bootstrap-tag.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script src="assets/js/jquery.validate.min.js"></script>
+
+		<script>
+		
+		var groups;
+		
+		$( document ).ready(function() {
+		
+		
+		  $.ajax({
+		  type: "GET",
+		  url: "http://localhost/learnnow/v1/ClipsArray",
+		  success: function(data){
+		  
+		   groups = data;
+		   
+		    var tag_input = $('#tags');
+				if(! ( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase())) ) 
+				{
+					tag_input.tag(
+					  {
+						placeholder:tag_input.attr('placeholder'),
+						//enable typeahead by specifying the source array
+						 source: data
+						
+					  }
+					);
+				}
+				else {
+					//display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+					tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="8">'+tag_input.val()+'</textarea>').remove();
+					//$('#form-field-tags').autosize({append: "\n"});
+				}
+		  },
+		  dataType: "json"
+		});
+		
+		   
+				
+				
+			$("#content-form").validate({
+				rules:{
+					contentUrl:"required",
+					title: "required"
+				},
+				errorClass: "help-inline"
+
+			});	
+				
+				
+				
+			$("#content-form").on("submit",function(e){
+			    $("#submitResults").html("");
+			    e.preventDefault();
+			   
+			    uploadContent();
+				return false;
+			});	
+		  		
+		});	
+
+		
+        function uploadContent(){
+         
+		
+		 var contentInfo = new Object();
+		 
+		 contentInfo.type = $("#content-type").val();
+		 contentInfo.contentUrl = $("#contentUrl").val();
+		 contentInfo.title = $("#title").val();
+		 contentInfo.tags = $("#tags").val();
+		 contentInfo.intro = $("#intro").val();
+		 contentInfo.contributor = $("#contributor").val();
+		 
+		 
+         var json = JSON.stringify(contentInfo);
+		 
+
+		  $.ajax({
+		  type: "POST",
+		  url: "/learnnow/app/ui/forms/content-upload.php",
+		  data: { contentInfo: json },
+		  success: successFn,
+		  dataType: "json"
+		});
+
+        
+       }
+	   
+	  function successFn(data){
+		 
+		
+		 str = "Content Submitted successfully";
+		 if(data.code != 200){
+		  str = data.statusDesc;
+		 }
+		 $("#submitResults").html(str);
+	   }	   
+		
+		</script>
+
+		<!-- inline scripts related to this page -->
+	</body>
+</html>

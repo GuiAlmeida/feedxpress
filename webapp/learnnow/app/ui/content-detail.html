@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>L & D - {$name}</title>
+
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+           <script src="assets/js/jquery-2.0.3.min.js"></script>
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+		<link rel="stylesheet" href="assets/css/chosen.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+        <style>
+		.navbar { background: {$navBarColor}; }
+        </style>		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar" style="">
+			<script type="text/javascript">
+			 {literal}
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			 {/literal}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-book" ></i>
+						         L & D - {$name}
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+					   <li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								
+								<span class="user-info">
+									<small>Welcome,</small>
+									{$name}
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										Settings
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										Profile
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="/learnnow/app/ui/logout.php">
+										<i class="icon-off"></i>
+										Logout
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+			 {literal}
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			 {/literal}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+					 {literal}
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					 {/literal}
+					</script>
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+
+					{include file='secure_header.tpl' groups=$groups }	
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+					 {literal}
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					 {/literal}	
+					</script>
+				</div>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+						 {literal}
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						 {/literal}	
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">Home</a>
+							</li>
+
+							<li>
+								<a href="#">Content</a>
+							</li>
+						
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+                  
+					<div class="page-content">
+					 
+					 <h4> {$title} </h4>
+					<div class="hr hr16 hr-dotted"></div>
+					  <div class="row">
+						<div class="col-xs-7" >
+								<!-- PAGE CONTENT BEGINS -->
+								
+                                <iframe id="slideshow_frame" src="{$url}{$fullscreen}" frameborder="0" width="100%" height="400px" marginheight="0" marginwidth="0"  scrolling="{$scroll}">
+								<i class="icon-spinner icon-spin orange bigger-125"></i>
+								</iframe>
+							    <div >Views 3000 | like 250</div>
+								
+								<!-- PAGE CONTENT ENDS -->
+						</div><!-- /.col -->
+						
+						    <div class="col-xs-5 " style="box-sizing:border-box;">
+							<form class="form form-vertical " role="form" name="content-form" id="content-form" method="POST" action="/learnnow/app/ui/forms/postFeedItem.php">
+														
+							   <div class="form-group">
+							      <input type="hidden" name="contentId" id="contentId" value="{$contentId}">
+								  <label class="" for=""><h5>Select Group(s)</h5></label>
+								  <div class="hr hr8 hr-dotted"></div>
+								 
+								   <select multiple="" class="width-80 chosen-select tag-input-style" name="groups[]" class="col-xs-9 " id="groups[]" style="margin-top:5px;" data-placeholder="Choose the Groups...">
+									<option value="">&nbsp;</option>
+									{foreach $groups as $group}
+									<option value="{$group}">{$group}</option>
+									{/foreach}
+ 							       </select>
+																			
+							   </div>
+							  
+								<div class="form-group">
+								 <div class="">
+									<label class="" ><h5>Post Options</h5></label>
+									<div class="hr8 hr  hr-dotted"></div>
+									<div class="checkbox">
+										<label>
+											<input id="canLike" name="canLike" type="checkbox" class="ace ace-checkbox-2" value="off"/>
+											<span class="lbl">&nbsp;&nbsp;&nbsp;<i class="icon-thumbs-up-alt  "> &nbsp; </i>Show Like options to users  ? </span>
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+										    <input id="canComment" name="canComment" type="checkbox" class="ace ace-checkbox-2" value="off"/>
+											<span class="lbl">&nbsp;&nbsp;&nbsp;<i class="icon-comment-alt"> &nbsp; </i>Allow Comments  ? </span>
+										</label>
+									</div>
+								</div>
+                               </div>
+							   <div class="form-group">
+								  <label class="col-sm-3 control-label no-padding" for=""></label>
+									<div class="col-sm-9">
+										<button class="btn btn-primary">Publish</button>
+									 </div>
+							   </div>
+							   	
+							   <div class="clearfix"/><br/>
+							   <div class="form-group">
+							   <div class="hr8 hr  hr-dotted"></div>
+							    <div style="margin-bottom: 5px;"> Published in group(s): </div>
+								<div style="">
+								{foreach $groupsSentClip as $group}
+									<span class="badge badge-grey" style="margin-bottom:8px;"><font size="2">{$group.companyGroup}</font></span>
+								{/foreach}
+								</div>
+								<div class="hr8 hr  hr-dotted"></div>
+								</div>
+								
+							   <div class="form-group">
+								  <label class="col-sm-9 control-label " for=""></label>
+									<div class="col-sm-9" id="content-submit-status">
+										
+									 </div>
+							   </div>	
+							   
+							 
+							    
+								
+							  					
+							  
+							</form>
+							 
+							</div>
+					  </div><!-- /.row -->
+					 
+
+					</div>
+					
+				 </div>
+					<div class="hr hr4 hr-dotted"></div>
+					<a class="btn col-sm-1" style="margin:10px;" href="/learnnow/app/ui/dashboard.php"><i class="icon-circle-arrow-left bigger-120"></i>Back</a>
+
+                    <div class="row">				
+					 <div id="content" class="col-sm-12" style="min-height:500px;"> 
+					 
+					 </div>
+					</div>
+                   		  
+				</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+				
+                        
+			
+			</div><!-- /.main-container-inner -->
+
+			
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+	
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+       {literal}
+	 
+	    <script src="assets/js/bootstrap.min.js"></script>
+	
+		<!-- page specific plugin scripts -->
+        <script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="assets/js/jquery.tmpl.min.js"></script>
+		<script src="assets/js/chosen.jquery.min.js"></script>
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script>
+		
+		$( document ).ready(function() {
+		
+		  $(".chosen-select").chosen();
+          
+		  var $form = $('#content-form');
+		  $form.on('submit', function() {		  
+		   
+		   $("#content-submit-status").html("<center><i class=\"icon-spinner icon-spin orange bigger-200\"></i> <span><font size=\"3\">Submitting Content...</font></span></center>");
+		   serializedData = $(this).serialize();
+		   
+		    // fire off the request to /form.php
+			request = $.ajax({
+				url: "/learnnow/app/ui/forms/postFeedItem.php",
+				type: "POST",
+				data: serializedData,
+				
+			});
+
+			// callback handler that will be called on success
+			request.done(function (response, textStatus, jqXHR){
+				// log a message to the console
+				 data = JSON.parse(response);
+				 
+				 if(data.code == "200"){
+				  
+				  $("#content-submit-status").html("<center><i class=\"icon-check-sign orange bigger-170\"></i><span><font size=\"3\">&nbsp;&nbsp;Content submitted</font></span></center>");
+				  
+				 }
+				 else
+				 {
+				    $("#content-submit-status").html("<center><i class=\" orange bigger-170\"></i><span><font size=\"3\">&nbsp;&nbsp;"+data.statusCode+"</font></span></center>");
+				 }
+			});
+
+			// callback handler that will be called on failure
+			request.fail(function (jqXHR, textStatus, errorThrown){
+				// log the error to the console
+				alert(
+					"The following error occured: "+
+					textStatus, errorThrown
+				);
+		   
+		   });
+		   
+		   
+		   
+		    return false;
+		
+		  });
+		
+		
+	     });
+		
+	
+		
+		
+		</script>
+		
+		<!-- inline scripts related to this page -->
+		 {/literal}
+	</body>
+</html>

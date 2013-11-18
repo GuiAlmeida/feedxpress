@@ -1,0 +1,13 @@
+<?php
+
+  
+  $compInfo = $_POST['compInfo'];
+
+  error_log(print_r($_POST,true));
+
+  $result = array();
+  $result["code"] = 200;
+
+  echo json_encode($result);
+?>
+

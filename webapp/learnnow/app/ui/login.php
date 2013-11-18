@@ -1,0 +1,52 @@
+<?php
+
+  require_once dirname(__FILE__).'/../realtime/account/Account.php';
+  require_once dirname(__FILE__).'/../realtime/account/AccountStatus.php';
+  require_once dirname(__FILE__).'/../../smarty/libs/Smarty.class.php';
+  require_once dirname(__FILE__).'/../realtime/loginmanager/LoginManager.php';
+
+ 
+
+  $username= $_POST['inputEmail'];
+  $pass = $_POST['inputPassword'];
+
+  $tempEngine = new Smarty();
+  $loginManager = new LoginManager();
+
+  $acct = $loginManager->authenticate($username,$pass);
+
+  error_log(json_encode($acct));
+  
+  if( $acct != null){
+     session_start();
+	 
+     $_SESSION['acct_id']= $acct['_id']->{'$id'};  
+    // $acct = json_encode($acct);
+     //$acct = json_decode($acct);
+     error_log("Account is not null");
+     
+	 $_SESSION['username']=$username;  
+	 $_SESSION['domain']= $acct['companyInfo']['url'];
+	 $_SESSION['navBarColor'] = $acct['companyStyle']['navBarColor'];
+
+	 error_log("Domain is:".$acct['companyInfo']['url']);
+	 
+          
+      header('Location: dashboard.php');          
+	  die();
+  }
+  else
+  {
+      $tempEngine->assign("email",$username); 
+      $tempEngine->assign("errorMsg","Sorry, you have entered a Wrong username or password, please try again!"); 
+	  $tempEngine->display("login-retry.html");
+	  die();
+  }
+
+
+
+ 
+
+
+?>
+

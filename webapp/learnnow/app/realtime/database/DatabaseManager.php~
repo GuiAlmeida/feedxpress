@@ -1,0 +1,79 @@
+<?php
+
+
+ 
+class DatabaseManager{
+
+
+     private	$ip; 
+     private    $port; 
+
+     private    $username;
+     private    $pass;
+
+
+
+     public function __construct() {
+     
+      
+           
+     }
+
+     public function getConnection(){
+
+	   $connection = new MongoClient();
+           return $connection;
+		
+     }
+ 
+     public function findMenu($pToNumber){
+     $menu = null;
+     $conn = $this->getConnection();	     
+     $db = $conn->others;
+     $phonemenus = $db->phonemenus;
+     $menuQuery = array("number" => $pToNumber);
+   
+     $menuResults= $phonemenus->findOne($menuQuery);
+
+     if($menuResults){
+    
+      $menuId=$menuResults['menu_id'];
+ 
+      $mQuery =array("_id" => new MongoId($menuId));   
+      $menus = $db->menus;
+      $menu = $menus->findOne($mQuery);
+     
+     }
+
+     return $menu;  
+     }
+
+     /*For trial accounts, based on the From and To, retrive the menu from phonemenus*/ 
+     public function findMenu2($pFrom,$pToNumber){
+
+      /*Find account id based on From*/
+
+
+
+      /*Find menu id based on account id and To */
+      /*find the menu based on menu id*/
+
+     }
+
+     function isTrialnumber($pPhoneNumber){
+ 
+       $conn = $this->getConnection();	     
+       $db = $conn->others;
+       $trialnumbers =  $db->trialnumbers;
+
+       $trialQuery =  $menuQuery = array("number" => $pPhoneNumber); 
+       
+       $trialResults=  $trialnumbers->findOne($trialQuery);
+ 
+       return $trialResults;
+     } 
+
+}
+
+
+?>
